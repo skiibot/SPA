@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import {Post} from "src/app/models/posts.models";
 import { PostService } from "src/app/services/post.service";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
@@ -14,8 +14,9 @@ import {lodash} from 'lodash';
 
 export class DisplayPostComponent{
 
-    posts:Post[] = [null];
+    posts:Post[] = [];
     filtertext:string = '';
+    filterPosts;
 
 
     constructor(public postService:PostService, private dialog:MatDialog){
@@ -44,14 +45,19 @@ export class DisplayPostComponent{
     onDelete(id:string){
         this.postService.removePosts(id);
     }
+    /*
+    filterdPosts(value:any){
+        if(value != ''){
+            console.log(value);
+            console.log("I am here!");
+            const result = this.ArrayFilter(this.posts,value);
+            this.filterPosts = result;
+        }else{
+            this.filterPosts = this.posts;
+        }
 
-    filterPosts(value:any){
-        console.log("currently typing!");
-        this.filtertext += value.target.value;
-        this.posts = this.posts.filter( function(post){
-            return post.title.toLocaleLowerCase().includes(value)
-        });
     }
+    */
 
     sortAscending(){
         var sorted = this.posts.sort((a, b) => a.title.localeCompare(b.title));
@@ -63,8 +69,21 @@ export class DisplayPostComponent{
         this.posts = sorted;
     }
 
+    /*
+    ArrayFilter(posts:Post[], value:string){
+        let finalresult = posts.forEach( element =>{
+            let result:Post[] = [];
+            if(element.title.includes(value)){
+                result.push(element);
+            }
+            console.log(result);
+            return result;
+        });
 
+        return finalresult;
+    }
 
+    */
 
 
 

@@ -10,12 +10,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 
 import { AppComponent } from './app.component';
 import {CreatePostComponent} from './components/create-post-dialog/create-post.component'; 
 import {HomeComponent} from './pages/home/home.component';
 import {DisplayPostComponent} from './components/display-post/display-post.component'; 
+import {ToolbarComponent} from './components/toolbar/toolbar.component';
 
 const routes: Routes = [
   {path: 'home', component:AppComponent},
@@ -29,6 +31,7 @@ const routes: Routes = [
     CreatePostComponent,
     HomeComponent,
     DisplayPostComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatMenuModule
+    MatMenuModule,
+    MatToolbarModule
     //RouterModule.forRoot(routes)
   ],
   providers: [],

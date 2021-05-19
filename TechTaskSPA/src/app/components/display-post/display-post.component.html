@@ -4,12 +4,15 @@
     <button id = "special" mat-raised-button color="primary" (click) = "createNewDialog()">Create New Post</button>
 </mat-card>
 <!--
-   <Input matInput 
+    <Input matInput 
+                ngDefaultControl 
                 id="filterID"
                 placeholder="Type here to search"
-                [(ngModel)] = "filtertext"
-                (input) = "filterPosts(input.value)"> 
+                [ngModel] = "filtertext"
+                (ngModelChange) = "filterdPosts($event)"> 
 -->
+   
+
 
 <button class="buttonsSort" mat-button (click) = "sortAscending()">Ascending order</button>
 <button class="buttonsSort" mat-button (click) = "sortDescending()">Descending order</button>
