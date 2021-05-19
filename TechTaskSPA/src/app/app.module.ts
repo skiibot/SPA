@@ -6,7 +6,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {Routes, RouterModule} from '@angular/router';
 import {MatExpansionModule} from '@angular/material/expansion';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 import { AppComponent } from './app.component';
 import {CreatePostComponent} from './components/create-post-dialog/create-post.component'; 
@@ -33,6 +35,10 @@ const routes: Routes = [
     MatButtonModule,
     MatCardModule,
     MatExpansionModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule
     //RouterModule.forRoot(routes)
   ],
   providers: [],

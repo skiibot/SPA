@@ -17,7 +17,11 @@ export class DisplayPostComponent{
     posts:Post[] = [];
 
     constructor(public postService:PostService, private dialog:MatDialog){
-        this.posts = postService.getPosts();
+        postService.postUpdated.subscribe( 
+            result =>{
+                this.posts = result;
+        });
+        postService.getPosts();
     }
 
 

@@ -1,6 +1,33 @@
 <h1 mat-dialog-title>Create a new Post</h1>
-<div mat-dialog-content>This creates a new dialog box.</div>
-<div mat-dialog-actions>
-    <button mat-button mat-dialog-close>Submit</button>
-    <button mat-button mat-dialog-close>Close</button>
-</div>
+<form [formGroup] = "postsForm" (ngSubmit) = "onSubmit()">
+    <div mat-dialog-content>
+        <mat-form-field appearance = "legacy">
+            <mat-label for = "titleID">Post Title</mat-label>
+            <input matInput 
+                id="titleID"
+                placeholder="Title"
+                formControlName="title">
+            <mat-hint  *ngIf = "postsForm.controls.title.invalid && postsForm.controls.title.touched">Post Title Required</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance = "legacy">
+            <mat-label for = "tagsID">Post Tags</mat-label>
+            <input matInput 
+                id="tagsID"
+                placeholder="Tags, Many"
+                formControlName="tags">
+            <mat-hint  *ngIf = "postsForm.controls.tags.invalid && postsForm.controls.tags.touched">Tags Required</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance = "legacy">
+            <mat-label for = "contentID">Post Content</mat-label>
+            <textarea matInput 
+                id="contentID"
+                placeholder="Today I have..."
+                formControlName="content"></textarea>
+            <mat-hint  *ngIf = "postsForm.controls.content.invalid && postsForm.controls.content.touched">Content Required</mat-hint>
+        </mat-form-field>
+        </div>
+    <div mat-dialog-actions>
+        <button mat-button type="submit">Submit</button>
+        <button mat-button mat-dialog-close>Close</button>
+    </div>
+</form>

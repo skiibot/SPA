@@ -1,10 +1,14 @@
 import { Injectable } from "@angular/core";
+import { Subject } from "rxjs";
 import {Post} from "../models/posts.models";
 
 
 @Injectable({providedIn:'root'})
 
 export class PostService{
+
+    public postUpdated:Subject<Post[]> = new Subject<Post[]>();
+
     private Posts:Post[] = [
         {id: "fdsgfdgs",
         title:"Hello all!",
@@ -19,14 +23,17 @@ export class PostService{
         tags: "sdafsdadf",
         content: "Can't even do this correctly!!!!"},];
 
+    
 
     getPosts(){
-        return [...this.Posts];
+        this.postUpdated.next([...this.Posts]);
     }
 
     addPost(post:Post){
         this.Posts.push(post);
+        this.postUpdated.next([...this.Posts]);
     }
+
 
 
 }
