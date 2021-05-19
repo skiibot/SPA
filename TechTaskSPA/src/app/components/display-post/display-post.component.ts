@@ -1,5 +1,9 @@
 import { Component } from "@angular/core";
 import {Post} from "src/app/models/posts.models";
+import { PostService } from "src/app/services/post.service";
+import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
+import { CreatePostComponent } from "../create-post-dialog/create-post.component";
+
 
 @Component({
     selector: 'display-post',
@@ -9,25 +13,24 @@ import {Post} from "src/app/models/posts.models";
 
 
 export class DisplayPostComponent{
-    
-    
-    posts:Post[] = [
-        {id: "fdsgfdgs",
-        title:"Hello all!",
-        tags: "sdafsdadf",
-        content: "What is all this about???"},
-        {id: "tdygdh",
-        title:"Hello my dudes!",
-        tags: "sdafsdadf",
-        content: "Hola mi amigos???"},
-        {id: "sdf",
-        title:"How awesome are you!",
-        tags: "sdafsdadf",
-        content: "Can't even do this correctly!!!!"},];
+
+    posts:Post[] = [];
+
+    constructor(public postService:PostService, private dialog:MatDialog){
+        this.posts = postService.getPosts();
+    }
 
 
     createNewDialog(){
-        console.log("This should make a dialog box popup!");
+        const dialogConfig = new MatDialogConfig();
+
+        dialogConfig.disableClose = true;
+        dialogConfig.autoFocus = true;
+        dialogConfig.closeOnNavigation = true;
+        dialogConfig.width = '800px';
+
+        this.dialog.open(CreatePostComponent, dialogConfig);
+
     }
 }
 
