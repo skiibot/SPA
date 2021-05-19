@@ -2,3 +2,13 @@
     <mat-card-header> <h1>Today I Have</h1></mat-card-header>
     <button mat-raised-button color="primary" (click) = "createNewDialog()">Create New Post</button>
 </mat-card>
+<mat-accordion *ngIf = "posts.length > 0" >
+    <mat-expansion-panel *ngFor = "let post of posts">
+        <mat-expansion-panel-header>
+            <mat-panel-title>{{post.title}}</mat-panel-title>
+            <mat-panel-description>{{post.tags}}</mat-panel-description>
+        </mat-expansion-panel-header>
+        <p>{{post.content}}</p>
+    </mat-expansion-panel>
+</mat-accordion>
+<h2 *ngIf = "posts.length == 0" > There is nothing to display!</h2>

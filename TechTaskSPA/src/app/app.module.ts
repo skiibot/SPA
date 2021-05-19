@@ -5,6 +5,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {Routes, RouterModule} from '@angular/router';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 
 import { AppComponent } from './app.component';
 import {CreatePostComponent} from './components/create-post-dialog/create-post.component'; 
@@ -30,7 +32,8 @@ const routes: Routes = [
     MatDialogModule,
     MatButtonModule,
     MatCardModule,
-    RouterModule.forRoot(routes)
+    MatExpansionModule,
+    //RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
