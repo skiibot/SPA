@@ -1,4 +1,4 @@
-button{
+#special{
     display:block;
     margin:auto;
 }
@@ -13,9 +13,6 @@ h1{
 }
 
 mat-card{
-    width:80%;
-    display:block;
-    margin:auto;
     margin-top:10px;
     margin-bottom:10px;
 }
@@ -31,4 +28,15 @@ mat-expansion-panel{
     margin:auto;
     margin-top:10px;
     margin-bottom:10px;
+}
+
+.buttonsSort{
+    float:right;
+    margin:15px;
+}
+
+article{
+    width:80%;
+    display:block;
+    margin:auto;
 }

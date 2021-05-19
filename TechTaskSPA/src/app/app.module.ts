@@ -9,6 +9,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatMenuModule} from '@angular/material/menu';
+
 
 import { AppComponent } from './app.component';
 import {CreatePostComponent} from './components/create-post-dialog/create-post.component'; 
@@ -38,7 +40,8 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatMenuModule
     //RouterModule.forRoot(routes)
   ],
   providers: [],

@@ -3,7 +3,7 @@ import {Post} from "src/app/models/posts.models";
 import { PostService } from "src/app/services/post.service";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import { CreatePostComponent } from "../create-post-dialog/create-post.component";
-
+import {lodash} from 'lodash';
 
 @Component({
     selector: 'display-post',
@@ -14,7 +14,9 @@ import { CreatePostComponent } from "../create-post-dialog/create-post.component
 
 export class DisplayPostComponent{
 
-    posts:Post[] = [];
+    posts:Post[] = [null];
+    filtertext:string = '';
+
 
     constructor(public postService:PostService, private dialog:MatDialog){
         postService.postUpdated.subscribe( 
@@ -23,6 +25,8 @@ export class DisplayPostComponent{
         });
         postService.getPosts();
     }
+
+    
 
 
     createNewDialog(){
@@ -40,5 +44,29 @@ export class DisplayPostComponent{
     onDelete(id:string){
         this.postService.removePosts(id);
     }
+
+    filterPosts(value:any){
+        console.log("currently typing!");
+        this.filtertext += value.target.value;
+        this.posts = this.posts.filter( function(post){
+            return post.title.toLocaleLowerCase().includes(value)
+        });
+    }
+
+    sortAscending(){
+        var sorted = this.posts.sort((a, b) => a.title.localeCompare(b.title));
+        this.posts = sorted;
+    }
+
+    sortDescending(){
+        var sorted = this.posts.sort((a, b) => a.title.localeCompare(b.title)).reverse();
+        this.posts = sorted;
+    }
+
+
+
+
+
+
 }
 
