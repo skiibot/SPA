@@ -36,5 +36,9 @@ export class DisplayPostComponent{
         this.dialog.open(CreatePostComponent, dialogConfig);
 
     }
+
+    onDelete(id:string){
+        this.postService.removePosts(id);
+    }
 }
 

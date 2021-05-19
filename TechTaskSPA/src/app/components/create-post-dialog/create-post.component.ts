@@ -32,11 +32,12 @@ export class CreatePostComponent{
     onSubmit(){
         if(this.postsForm.valid){
             this.postsService.addPost({
-                id:'',
+                id:'', //creates an id
                 title:this.postsForm.controls.title.value,
                 tags:this.postsForm.controls.tags.value,
                 content:this.postsForm.controls.content.value
-            })
+            });
+            //console.log(`submitted id of ${this.id}`);
             console.log(`title ${this.postsForm.controls.title.value}`);
             this.dialogRef.close();
         }
@@ -46,7 +47,6 @@ export class CreatePostComponent{
 
     onClose(){
         this.dialogRef.close();
-
     }
 
 
